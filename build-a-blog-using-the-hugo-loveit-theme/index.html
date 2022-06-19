@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>使用Hugo&#43;LoveIt主题搭建博客 - Dorien&#39;s 小窝</title><meta name="Description" content="整理、总结、分享"><meta property="og:title" content="使用Hugo&#43;LoveIt主题搭建博客" />
+<meta property="og:description" content="安装 Hugo 可参考Hugo 官方的 Quick Start
+Windows使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 设置环境变量 Windows版本为一个exe文件，需要放到一个目录中，并修改Windows系统的环境变量 # 创建新项目（网站） hugo new site my_website # 生成用于发布的静态文件（不包含草稿） hugo # 生成用于发布的静态文件（包括草稿） hugo -D # 本地运行网站 hugo server 安装 GIT 可到官方GIT网站下载
+安装 LoveIt 主题 1 2 # 位于你的博客项目根目录 git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 代码克隆成功后在./themes文件夹下应出现LoveIt文件夹。
+详细可参考LoveIt 官方文档
+项目文件树结构 1 2 3 4 5 6 7 8 9 10 ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-17T18:11:40+08:00" />
+<meta property="article:modified_time" content="2022-06-17T18:11:40+08:00" /><meta property="og:site_name" content="Dorien&#39;s 小窝" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.png"/>
+
+<meta name="twitter:title" content="使用Hugo&#43;LoveIt主题搭建博客"/>
+<meta name="twitter:description" content="安装 Hugo 可参考Hugo 官方的 Quick Start
+Windows使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 设置环境变量 Windows版本为一个exe文件，需要放到一个目录中，并修改Windows系统的环境变量 # 创建新项目（网站） hugo new site my_website # 生成用于发布的静态文件（不包含草稿） hugo # 生成用于发布的静态文件（包括草稿） hugo -D # 本地运行网站 hugo server 安装 GIT 可到官方GIT网站下载
+安装 LoveIt 主题 1 2 # 位于你的博客项目根目录 git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 代码克隆成功后在./themes文件夹下应出现LoveIt文件夹。
+详细可参考LoveIt 官方文档
+项目文件树结构 1 2 3 4 5 6 7 8 9 10 ."/>
+<meta name="application-name" content="Dorien&#39;s 小窝">
+<meta name="apple-mobile-web-app-title" content="Dorien&#39;s 小窝"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用Hugo+LoveIt主题搭建博客",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/build-a-blog-using-the-hugo-loveit-theme\/"
+        },"genre": "posts","keywords": "历史, 文学","wordcount":  1290 ,
+        "url": "http:\/\/example.org\/build-a-blog-using-the-hugo-loveit-theme\/","datePublished": "2022-06-17T18:11:40+08:00","dateModified": "2022-06-17T18:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "","logo": "http:\/\/example.org\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dorien"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Dorien&#39;s 小窝"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />Dorien&#39;s 小窝</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/build-a-blog-using-the-hugo-loveit-theme/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Dorien&#39;s 小窝"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />Dorien&#39;s 小窝</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/build-a-blog-using-the-hugo-loveit-theme/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用Hugo+LoveIt主题搭建博客</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://dorien.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dorien</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/documentation/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>documentation</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-17">2022-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1290 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-hugo">安装 Hugo</a>
+      <ul>
+        <li><a href="#windows使用">Windows使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装-git">安装 GIT</a></li>
+    <li><a href="#安装-loveit-主题">安装 LoveIt 主题</a></li>
+    <li><a href="#项目文件树结构">项目文件树结构</a></li>
+    <li><a href="#配置网站设置">配置网站设置</a></li>
+    <li><a href="#配置缩略图">配置缩略图</a></li>
+    <li><a href="#开始写第一篇文章">开始写第一篇文章</a>
+      <ul>
+        <li><a href="#makedown编辑软件">Makedown编辑软件</a></li>
+        <li><a href="#文章前缀参数">文章前缀参数</a></li>
+        <li><a href="#将文章前缀参数保存在-markdown-模版中">将文章前缀参数保存在 markdown 模版中</a></li>
+        <li><a href="#生成新文章">生成新文章</a></li>
+        <li><a href="#本地调试">本地调试</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建-github-仓库">创建 Github 仓库</a>
+      <ul>
+        <li><a href="#第一个仓库">第一个仓库</a>
+          <ul>
+            <li><a href="#链接本地仓库与远端仓库">链接本地仓库与远端仓库</a></li>
+            <li><a href="#删除远端的文件">删除远端的文件</a></li>
+            <li><a href="#创建gitignore">创建.gitignore</a></li>
+          </ul>
+        </li>
+        <li><a href="#第二个仓库">第二个仓库</a>
+          <ul>
+            <li><a href="#创建仓库注意名称">创建仓库，注意名称</a></li>
+            <li><a href="#在仓库设置里设置启用github-pages">在仓库设置里设置启用<code>Github Pages</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#给源代码仓库添加-github-action">给源代码仓库添加 Github Action</a></li>
+    <li><a href="#ssh">SSH</a>
+      <ul>
+        <li><a href="#创建-ci-脚本">创建 CI 脚本</a></li>
+        <li><a href="#设置-push-用的密钥">设置 Push 用的密钥</a></li>
+        <li><a href="#观察效果">观察效果</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置评论系统">配置评论系统</a>
+      <ul>
+        <li><a href="#gittalk">GitTalk</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置搜索系统">配置搜索系统</a></li>
+    <li><a href="#配置-google-analytics-网站分析">配置 Google Analytics 网站分析</a></li>
+    <li><a href="#配置-google-search-console">配置 Google Search Console</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>  <img width="517" height="145" src="hugo.jpg"/></p>
+<h2 id="安装-hugo">安装 Hugo</h2>
+<p>可参考<a href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener noreffer">Hugo 官方的 Quick Start</a></p>
+<h3 id="windows使用">Windows使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 设置环境变量
+</span></span><span class="line"><span class="cl">Windows版本为一个exe文件，需要放到一个目录中，并修改Windows系统的环境变量
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 创建新项目（网站）
+</span></span><span class="line"><span class="cl">hugo new site my_website
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 生成用于发布的静态文件（不包含草稿）
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 生成用于发布的静态文件（包括草稿）
+</span></span><span class="line"><span class="cl">hugo -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 本地运行网站
+</span></span><span class="line"><span class="cl">hugo server 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装-git">安装 GIT</h2>
+<p>可到<a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreffer">官方GIT网站下载</a></p>
+<h2 id="安装-loveit-主题">安装 LoveIt 主题</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 位于你的博客项目根目录
+</span></span><span class="line"><span class="cl">git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码克隆成功后在<code>./themes</code>文件夹下应出现<code>LoveIt</code>文件夹。</p>
+<p>详细可参考<a href="https://hugoloveit.com/zh-cn/theme-documentation-basics/" target="_blank" rel="noopener noreffer">LoveIt 官方文档</a></p>
+<h2 id="项目文件树结构">项目文件树结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── archetypes # markdown文章的模版
+</span></span><span class="line"><span class="cl">├── config.toml # 配置文件
+</span></span><span class="line"><span class="cl">├── content # 网站内容，主要保存文章
+</span></span><span class="line"><span class="cl">├── data # 生成网站可用的数据文件，可用在模版中
+</span></span><span class="line"><span class="cl">├── layouts # 生成网站时可用的模版
+</span></span><span class="line"><span class="cl">├── public # 通过hugo命令生成的静态文件，主要发布这个
+</span></span><span class="line"><span class="cl">├── resources # 通过hugo命令一起生成的资源文件，暂时不知道什么用
+</span></span><span class="line"><span class="cl">├── static # 静态文件，比如文章中的图片/视频文件、缩略图等
+</span></span><span class="line"><span class="cl">└── themes # 保存可用的hugo主题 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通常，我们只会用到以下几个文件夹的东西</p>
+<ul>
+<li><code>config.toml</code> ：保存 hugo 的配置，包括主题的配置等。详细设置见下方 <strong>网站配置</strong></li>
+<li><code>content</code>：保存网站的各种内容，比如文章。</li>
+<li><code>archetypes</code>： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到。</li>
+<li><code>static</code> ：保存文章中用到的静态文件，比如图片、网站缩略图等。</li>
+<li><code>public</code> ：通过<code>hugo</code>命令生成的静态 html 文件、css、js 等。在服务器上发布时主要发布这个文件夹。</li>
+</ul>
+<h2 id="配置网站设置">配置网站设置</h2>
+<p>配置文件位置：<code>./config.toml</code></p>
+<p>具体的配置条目参考<a href="https://hugoloveit.com/zh-cn/theme-documentation-basics/#site-configuration" target="_blank" rel="noopener noreffer">LoveIt 官方文档</a></p>
+<h2 id="配置缩略图">配置缩略图</h2>
+<ol>
+<li>
+<p>使用的网站：https://realfavicongenerator.net/ 获取缩略图的各种格式</p>
+<img width="445" height="208" src="realfavicongenerator.png"/>
+</li>
+<li>
+<p>将整个压缩包的文件（包括图片之外的文件）放到<code>./static</code>下</p>
+</li>
+<li>
+<p>重启浏览器，应该可以看到标签上的缩略图出现了。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/build-a-blog-using-the-hugo-loveit-theme/image-20210420221206348_8d210055689b4d8390d315e838.png"
+        data-srcset="/build-a-blog-using-the-hugo-loveit-theme/image-20210420221206348_8d210055689b4d8390d315e838.png, /build-a-blog-using-the-hugo-loveit-theme/image-20210420221206348_8d210055689b4d8390d315e838.png 1.5x, /build-a-blog-using-the-hugo-loveit-theme/image-20210420221206348_8d210055689b4d8390d315e838.png 2x"
+        data-sizes="auto"
+        alt="/build-a-blog-using-the-hugo-loveit-theme/image-20210420221206348_8d210055689b4d8390d315e838.png"
+        title="image-20210420221206348_8d210055689b4d8390d315e838" width="234" height="43" /></p>
+</li>
+</ol>
+<h2 id="开始写第一篇文章">开始写第一篇文章</h2>
+<h3 id="makedown编辑软件">Makedown编辑软件</h3>
+<p>Typora和Joplin这两个软件，前一个收费，后一个开源免费</p>
+<h3 id="文章前缀参数">文章前缀参数</h3>
+<p>在每篇 markdown 文章最前面可以用一部分注释来告诉<code>LoveIt主题</code>，这篇文章的属性，譬如文章标签、分类、是否为草稿等。</p>
+<p>详细可参考<a href="https://hugoloveit.com/zh-cn/theme-documentation-content/#front-matter" target="_blank" rel="noopener noreffer">LoveIt 官方文档</a></p>
+<h3 id="将文章前缀参数保存在-markdown-模版中">将文章前缀参数保存在 markdown 模版中</h3>
+<p>模版文件位置：<code>./archetypes/default.md</code></p>
+<p>我使用的md模版</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+</span></span><span class="line"><span class="cl">date: {{ .Date }}
+</span></span><span class="line"><span class="cl">draft: false
+</span></span><span class="line"><span class="cl">author: &#34;Dorien&#34;
+</span></span><span class="line"><span class="cl">authorLink: &#34;http://dorien.com&#34;
+</span></span><span class="line"><span class="cl">description: &#34;&#34;
+</span></span><span class="line"><span class="cl">images: []
+</span></span><span class="line"><span class="cl">resources:
+</span></span><span class="line"><span class="cl">- name: &#34;featured-image&#34;
+</span></span><span class="line"><span class="cl">  src: &#34;featured-image.jpg&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tags: [&#34;&#34;, &#34;&#34;]
+</span></span><span class="line"><span class="cl">categories: [&#34;&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#如果设为 true, 这篇文章将不会显示在主页上.
+</span></span><span class="line"><span class="cl">hiddenFromHomePage: false
+</span></span><span class="line"><span class="cl">#LoveIt 新增 | 0.2.0 如果设为 true, 这篇文章将不会显示在搜索结果中.
+</span></span><span class="line"><span class="cl">hiddenFromSearch: false
+</span></span><span class="line"><span class="cl">#LoveIt 新增 | 0.2.0 如果设为 true, 这篇文章会使用 twemoji.
+</span></span><span class="line"><span class="cl">twemoji: false
+</span></span><span class="line"><span class="cl">#如果设为 true, 文章中的图片将可以按照画廊形式呈现.
+</span></span><span class="line"><span class="cl">lightgallery: true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">toc:
+</span></span><span class="line"><span class="cl">  auto: false
+</span></span><span class="line"><span class="cl">--- 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="生成新文章">生成新文章</h3>
+<p>生成新文章的命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo new posts/文章标题.md 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行完成后，在<code>./content/posts</code>目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数。</p>
+<p>技巧</p>
+<ul>
+<li>
+<p>也可以手动复制旧文章来生成新文章，不通过命令。</p>
+</li>
+<li>
+<p>也可以在<code>content</code>文件夹下建新的文件夹，方便管理。这种情况下生成的静态 Html 文件路由效果如下：</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    .
+</span></span><span class="line"><span class="cl">    └── content
+</span></span><span class="line"><span class="cl">        └── about
+</span></span><span class="line"><span class="cl">        |   └── index.md  // &lt;- https://example.com/about/
+</span></span><span class="line"><span class="cl">        ├── posts
+</span></span><span class="line"><span class="cl">        |   ├── firstpost.md   // &lt;- https://example.com/posts/firstpost/
+</span></span><span class="line"><span class="cl">        |   ├── happy
+</span></span><span class="line"><span class="cl">        |   |   └── ness.md  // &lt;- https://example.com/posts/happy/ness/
+</span></span><span class="line"><span class="cl">        |   └── secondpost.md  // &lt;- https://example.com/posts/secondpost/
+</span></span><span class="line"><span class="cl">        └── quote
+</span></span><span class="line"><span class="cl">            ├── first.md       // &lt;- https://example.com/quote/first/
+</span></span><span class="line"><span class="cl">            └── second.md      // &lt;- https://example.com/quote/second/ 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="本地调试">本地调试</h3>
+<p>本地调试命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo server --disableFastRender 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本地运行网站</p>
+<p>出现成功的提示后在浏览器打开<code>http://localhost:1313</code>即可看到网站。</p>
+<h2 id="创建-github-仓库">创建 Github 仓库</h2>
+<p>个人建议创建两个仓库：</p>
+<ul>
+<li>
+<p>一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 <code>API KEY</code> 的东西。设置权限为 <em>Private（不公开）</em></p>
+</li>
+<li>
+<p>一个用于托管博客编译后生成的<code>静态 Html 文件</code>(即使用 hugo 命令编译生成的<code>public</code>文件夹)，并配置该仓库使用 <code>Github Pages</code>，然后 Github 就会自动检测到它其中的<code>静态Html文件</code>并搭建网站。设置权限为 Public（公开）</p>
+</li>
+</ul>
+<h3 id="第一个仓库">第一个仓库</h3>
+<p>按照常规方式创建仓库即可，反正设置为<em>private</em>权限等级，也没人看得见。</p>
+<p>第一个仓库示例，保存博客源代码</p>
+<h4 id="链接本地仓库与远端仓库">链接本地仓库与远端仓库</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 位于博客源代码根目录
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 初始化本地Git仓库
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 设置名为Origin的远端Git仓库
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/DorienY/BlogSource.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 选择所有文件
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## GIT设置
+</span></span><span class="line"><span class="cl">git config --global user.email &#34;1@1.com&#34;(你的注册邮箱)
+</span></span><span class="line"><span class="cl">git config --global user.name &#34;a&#34;(你的用户名)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 查看git设置
+</span></span><span class="line"><span class="cl">git config --list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 将文件添加到仓库
+</span></span><span class="line"><span class="cl">git commit -m &#34;first commint&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Push到github
+</span></span><span class="line"><span class="cl">git push -u origin main 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="删除远端的文件">删除远端的文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 删除缓冲区文件
+</span></span><span class="line"><span class="cl">git rm hello.jpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 查看状态
+</span></span><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 提交到仓库
+</span></span><span class="line"><span class="cl">git commit -m &#34;del hello.jpg&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 将本地仓库代码提交到远程仓库
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="创建gitignore">创建.gitignore</h4>
+<p>在源代码项目中创建<code>.gitignore</code>文件，来防止把生成的静态文件上传。创建位置如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── .git
+</span></span><span class="line"><span class="cl">├── .github
+</span></span><span class="line"><span class="cl">├── .gitignore  &lt;---- 在根目录下
+</span></span><span class="line"><span class="cl">├── README.md
+</span></span><span class="line"><span class="cl">├── archetypes
+</span></span><span class="line"><span class="cl">├── config.toml
+</span></span><span class="line"><span class="cl">├── content
+</span></span><span class="line"><span class="cl">├── data
+</span></span><span class="line"><span class="cl">├── layouts
+</span></span><span class="line"><span class="cl">├── public
+</span></span><span class="line"><span class="cl">├── resources
+</span></span><span class="line"><span class="cl">├── static
+</span></span><span class="line"><span class="cl">└── themes 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>.gitignore</code>中写入<code>/public</code>，来防止 Git 将其上传。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat .gitignore
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 输出
+</span></span><span class="line"><span class="cl">/public 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="第二个仓库">第二个仓库</h3>
+<h4 id="创建仓库注意名称">创建仓库，注意名称</h4>
+<p>第二个仓库名字比较重要，必须是<code>{{你的github用户名}}.github.io</code>。 比如我的 Github 名字为<code>JellyZhang</code>,那么我需要创建的仓库名称为<code>JellyZhang.github.io</code>。</p>
+<h4 id="在仓库设置里设置启用github-pages">在仓库设置里设置启用<code>Github Pages</code></h4>
+<p>找到仓库设置</p>
+<p>找到<code>Pages</code>一栏</p>
+<p>设置<code>Branch</code>与静态文件位置</p>
+<p>这个地方设置<code>Branch</code>为<code>master</code>，静态文件位置为<code>/(root)</code>，原因是我们在下个步骤中会直接将生成的<code>public</code>文件夹中的内容<code>push</code>到<code>master</code>分支的<code>/</code>目录下。</p>
+<h2 id="给源代码仓库添加-github-action">给源代码仓库添加 Github Action</h2>
+<p>Github Actions 可以帮你自动执行 Hugo 的编译、部署，配置好之后平时只需要维护一份 hugo 博客的源码，push 时自动发布到 Github Pages 上</p>
+<h2 id="ssh">SSH</h2>
+<p>这里需要重新生成一对密钥，使用之前用来配置过 Github 的密钥不能在这里使用啦，会报错提示已经被使用过啦。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -t rsa - -C &#34;$(git config user.email)&#34;
+</span></span><span class="line"><span class="cl"># 注意：这次不要直接回车，以免覆盖之前生成的
+</span></span><span class="line"><span class="cl"># 确认秘钥的保存路径（如果不需要改路径则直接回车）；如果已经有秘钥文件，则需要换一个路径，避免覆盖掉，如我更改之后的路径为 /home/kearney/.ssh_action/id_rsa；
+</span></span><span class="line"><span class="cl"># 创建密码（如果不需要密码则直接回车）； 
+</span></span><span class="line"><span class="cl"># 确认密码（如果不需要密码则直接回车），生成结束； 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 查看公钥，路径需要改为你上面的设置
+</span></span><span class="line"><span class="cl">cat ~/.ssh_action/id_rsa.pub 
+</span></span><span class="line"><span class="cl"># 查看私钥
+</span></span><span class="line"><span class="cl">cat ~/.ssh_action/id_rsa 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建-ci-脚本">创建 CI 脚本</h3>
+<p>在源代码项目根目录下新建<code>.github/workflow/build.yml</code>。(通过 Github Action 网页端操作也可以)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── .git
+</span></span><span class="line"><span class="cl">├── .github
+</span></span><span class="line"><span class="cl">│   └── workflows
+</span></span><span class="line"><span class="cl">│       └── build.yml  &lt;---在这里创建
+</span></span><span class="line"><span class="cl">├── .gitignore
+</span></span><span class="line"><span class="cl">├── README.md
+</span></span><span class="line"><span class="cl">├── archetypes
+</span></span><span class="line"><span class="cl">├── config.toml
+</span></span><span class="line"><span class="cl">├── content
+</span></span><span class="line"><span class="cl">├── data
+</span></span><span class="line"><span class="cl">├── layouts
+</span></span><span class="line"><span class="cl">├── public
+</span></span><span class="line"><span class="cl">├── resources
+</span></span><span class="line"><span class="cl">├── static
+</span></span><span class="line"><span class="cl">└── themes 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>build.yml</code>脚本内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># This is a basic workflow to help you get started with Actions    name:  CI    # Controls when the action will run.  on:   # Triggers the workflow on push or pull request events but only for the master branch   push:   branches:  [master]   pull_request:   branches:  [master]     # Allows you to run this workflow manually from the Actions tab   workflow_dispatch:    # A workflow run is made up of one or more jobs that can run sequentially or in parallel  jobs:   # This workflow contains a single job called &#34;build&#34;   build:   # The type of runner that the job will run on   runs-on:  ubuntu-latest     # Steps represent a sequence of tasks that will be executed as part of the job   steps:   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it   - uses:  actions/checkout@v2   with:   submodules:  true  # Fetch Hugo themes (true OR recursive)   fetch-depth:  0  # Fetch all history for .GitInfo and .Lastmod     - name:  Hugo setup   # You may pin to the exact commit or the version.   # uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e   uses:  peaceiris/actions-hugo@v2.4.13   with:   # The Hugo version to download (if necessary) and use. Example: 0.58.2   hugo-version:  latest  # optional, default is latest   # Download (if necessary) and use Hugo extended version. Example: true   extended:  true  # optional, default is false     - name:  Build   run:  hugo     - name:  Pushes to another repository   uses:  cpina/github-action-push-to-another-repository@master   env:   API_TOKEN_GITHUB:  ${{ secrets.API_TOKEN_GITHUB }}   with:   source-directory:  &#34;public&#34;   destination-github-username:  &#34;这里输入你的Github用户名&#34;   destination-repository-name:  &#34;这里输入你的Github用户名.github.io&#34;   user-email:  这里输入你的Github邮箱 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要自定义的部分</p>
+<p>注意<code>on</code>里的 branch 是否和自己的相同，因为现在 Github 默认分支为 main。 同时最后三行内容需要自行替换。</p>
+<p>脚本主要做了以下事情：</p>
+<ol>
+<li>创建一个 Hugo 环境</li>
+<li>使用 hugo 命令编译代码，产生 public 文件夹</li>
+<li>将 public 文件 push 到<code>你的Github用户名.github.io</code>仓库。（也就是你之前创建的第二个仓库）</li>
+</ol>
+<h3 id="设置-push-用的密钥">设置 Push 用的密钥</h3>
+<p>为了让 Github Action 脚本有权限将代码 Push 到我们的<code>xx.github.io</code>仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到<code>Developer settings/Personal access tokens</code></p>
+<p>个人密钥设置界面</p>
+<p>新建一个密钥，权限设置把<code>Repo</code>打勾。</p>
+<p>回到第一个仓库的设置里，选择<code>Secrets（密钥）</code></p>
+<p>仓库密钥设置</p>
+<p>新建密钥，将刚才生成的个人密钥填进去，名字设为<code>API_TOKEN_GITHUB</code>(跟 CI 脚本里的名称对应即可)</p>
+<h3 id="观察效果">观察效果</h3>
+<p>在 Push 新修改到第一个仓库后，在<code>Action</code>界面可以看到新的<code>workflow</code>开始运行了。</p>
+<p>第一个仓库<code>workflow</code>界面（图中已经完成）</p>
+<p>在<code>workflow</code>结束后，可以在第二个仓库看到新的<code>Push</code></p>
+<p>第二个仓库自动<code>push</code>了新的静态页面</p>
+<p>在等待 1-2 分钟后，即可在<code>xx.github.io</code>观察到变化。</p>
+<h2 id="配置评论系统">配置评论系统</h2>
+<h3 id="gittalk">GitTalk</h3>
+<p><code>GitTalk</code>是基于 github 的 repo issues 作为数据库来存储评论的。 <code>Love-It</code>主题集成了<code>GitTalk</code> ，需要使用的话只需要在<code>config.toml</code>里填写指定信息就可以了。</p>
+<p>首先要去<code>Github -&gt; Settings -&gt; Developer Settings -&gt; OAuth App</code> 里注册一个新的 OAuth App 来给 Gitalk 使用。 两个 Url 填自己博客的地址就行。</p>
+<p>注册OAuth App</p>
+<p>修改<code>config.toml</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> [params.page.comment]
+</span></span><span class="line"><span class="cl">      enable = true  &lt;-- 启用评论系统
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      [params.page.comment.gitalk]
+</span></span><span class="line"><span class="cl">        enable = true
+</span></span><span class="line"><span class="cl">        owner = &#34;JellyZhang&#34;  &lt;-- Github用户名
+</span></span><span class="line"><span class="cl">        repo = &#34;blog-comment&#34; &lt;-- 用来存放评论的repo名称
+</span></span><span class="line"><span class="cl">        clientId = &#34;&#34;  &lt;-- 申请好的OAuth的ClientId
+</span></span><span class="line"><span class="cl">        clientSecret = &#34;&#34; &lt;-- 申请好的OAuth的ClientSecret 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>升级Gitalk来防止403问题</p>
+<p><code>Gitalk 1.6.2版本</code> 存在一个自身 Bug，它里面用到了一个链接来依赖某个下游，而事实上这个链接是 demo 演示用的，已经因为滥用被取消了，所以需要将 LoveIt 主题使用的 1.6.2 版本改成<strong>1.7.2</strong></p>
+<p>修改<code>./themes/LoveIt/assets/data/cdn/jsdelivr.yml</code>中的<code>Gitalk</code>的链接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ...   metingJS:  meting@2.0.1/dist/Meting.min.js   # gitalk@1.6.2 https://github.com/gitalk/gitalk   gitalkCSS:  gitalk@1.7.2/dist/gitalk.min.css     &lt;-- 改为1.7.2   gitalkJS:  gitalk@1.7.2/dist/gitalk.min.js    &lt;-- 改为1.7.2   # valine@1.4.14 https://valine.js.org/   valineJS:  valine@1.4.14/dist/Valine.min.js   ... 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在本地环境看不到生效？</p>
+<p>评论系统在本地运行时不生效，需要 publish 后查看效果。</p>
+<h2 id="配置搜索系统">配置搜索系统</h2>
+<p><code>LoveIt</code>集成了两种搜索引擎，<a href="https://lunrjs.com/" target="_blank" rel="noopener noreffer">Lunr</a>和<a href="https://www.algolia.com/" target="_blank" rel="noopener noreffer">algolia</a>。</p>
+<p>两种搜索引擎的区别</p>
+<p>参考<a href="https://hugoloveit.com/zh-cn/theme-documentation-basics/#51-%E8%BE%93%E5%87%BA%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener noreffer">LoveIt 官方文档</a></p>
+<ul>
+<li>lunr: 简单, 无需同步 index.json, 没有 contentLength 的限制, 但占用带宽大且性能低 (特别是中文需要一个较大的分词依赖库)</li>
+<li>algolia: 高性能并且占用带宽低, 但需要同步 index.json 且有 contentLength 的限制</li>
+</ul>
+<p>我这里记录<code>algolia</code>的配置方法。 首先需要在配置文件中新增<code>Outputs</code>的<code>JSON</code>类型，用于产��<code>index.json</code>文件来提供给搜索引擎。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> config.toml:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[outputs]
+</span></span><span class="line"><span class="cl">  home = [&#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;] 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置后，在使用<code>hugo</code>命令编译后应该可以在<code>public</code>文件夹下找到<code>index.json</code></p>
+<p>之后在<code>algolia</code>注册账号并创建一个<code>application</code>与<code>index</code>:</p>
+<p>创建application, freePlan一般够用</p>
+<p>然后在<code>API Keys</code>里找到<code>appID</code>和<code>searchKey</code>:</p>
+<p>在API Keys里找到appId与searchKey</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> config.toml:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      [languages.zh-cn.params.search]
+</span></span><span class="line"><span class="cl">        enable = true
+</span></span><span class="line"><span class="cl">        # 搜索引擎的类型 (&#34;lunr&#34;, &#34;algolia&#34;)
+</span></span><span class="line"><span class="cl">        type = &#34;algolia&#34;
+</span></span><span class="line"><span class="cl">        # 文章内容最长索引长度
+</span></span><span class="line"><span class="cl">        contentLength = 4000
+</span></span><span class="line"><span class="cl">        # 搜索框的占位提示语
+</span></span><span class="line"><span class="cl">        placeholder = &#34;&#34;
+</span></span><span class="line"><span class="cl">        # 最大结果数目
+</span></span><span class="line"><span class="cl">        maxResultLength = 10
+</span></span><span class="line"><span class="cl">        # 结果内容片段长度
+</span></span><span class="line"><span class="cl">        snippetLength = 50
+</span></span><span class="line"><span class="cl">        # 搜索结果中高亮部分的 HTML 标签
+</span></span><span class="line"><span class="cl">        highlightTag = &#34;em&#34;
+</span></span><span class="line"><span class="cl">        # 是否在搜索索引中使用基于 baseURL 的绝对路径
+</span></span><span class="line"><span class="cl">        absoluteURL = false
+</span></span><span class="line"><span class="cl">        [languages.zh-cn.params.search.algolia]
+</span></span><span class="line"><span class="cl">          index = &#34;&#34;  &lt;---  你创建的index的名字
+</span></span><span class="line"><span class="cl">          appID = &#34;&#34;    &lt;--- Application ID
+</span></span><span class="line"><span class="cl">          searchKey = &#34;&#34;  &lt;--- Search-Only API Key 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后可以上传生成的<code>index.json</code>到 algolia 来生成索引，实现搜索功能。</p>
+<p>手动上传index.json的方法</p>
+<p>当然，每次生成完上传<code>index.json</code>未免太过麻烦，况且我们还是用<code>Github Action</code>来自动编译的，因此接下来我们让<code>Github Action</code>来帮我们上传<code>index.json</code>到<code>algolia</code>。</p>
+<p>首先生成一个 <code>Admin API Key</code> 用于调用 API 来上传 index.json:</p>
+<p>生成Admin API Key</p>
+<p>然后修改我们的<code>Github Action</code>的脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> 在`main.yml`末尾加上：     - name:  Algolia Index Uploader   # You may pin to the exact commit or the version.   # uses: rxrw/algolia-index-uploader@294d1d600c4a2197a64903b6161cc80acea1becb   uses:  rxrw/algolia-index-uploader@v1   with:   # Your Algolia IndexPath   index_path:  public/index.json   &lt;-- 生成的index.json位置，默认即可   # Algolia Index Id   algolia_index_id:  XXXXXXXXX  &lt;-- 你的indexId, 即之前获得的`application ID`   # Algolia Index Name   algolia_index_name:  XXXX  &lt;--- 你创建的index名字   # Algolia Admin Key   algolia_index_admin_key:  XXXXXXXXXXXX  &lt;--- 上图中获取的admin Key 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后运行脚本即可在<code>algolia</code>在 dashboard 里看到新增的记录。</p>
+<p>algolia新增了record</p>
+<p>删除文章后需要删除旧Record</p>
+<p>每次上传的记录是增量的，意味着不会清除旧的记录。</p>
+<p>因此如果删除了发布过的旧文章，需要手动去<code>algolia</code>网站上清理相关的 Object。（也可以使用 Clear 功能全部清除）</p>
+<h2 id="配置-google-analytics-网站分析">配置 Google Analytics 网站分析</h2>
+<p><code>Google analytics</code>是将用户的动作行为收集后发送到 Google，交由 Google 进行统计与分析，形成看板。</p>
+<p>在<a href="https://analytics.google.com/" target="_blank" rel="noopener noreffer">Google analytics</a>创建媒体资源 –&gt; 添加数据流 –&gt; 网站，之后在数据流详情里获取到<code>衡量ID</code>:</p>
+<p>获取衡量ID</p>
+<p>之后可以在<code>Dashboard</code>里查看网站的用户行为，有很多内容可以慢慢探索。</p>
+<p>Google analytics Dashboard</p>
+<h2 id="配置-google-search-console">配置 Google Search Console</h2>
+<p>首先确定自己的站点地图有正常生成。打开<code>/sitemap.xml</code>链接：</p>
+<p>sitemap</p>
+<p>之后在<code>Google Search Console</code>里填写自己站点地图的链接，可以帮助谷歌爬虫了解网站结构。</p>
+<p>上传sitemap</p>
+<p>显示<code>无法获取</code>?</p>
+<p>事实上是没有问题的，谷歌可能有点延迟。可以在<a href="https://www.bing.com/webmasters" target="_blank" rel="noopener noreffer">bing webmaster tool</a> 导入 Google 的设置，可以看到 bing 是可以立即获取的。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/build-a-blog-using-the-hugo-loveit-theme/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" data-title="使用Hugo&#43;LoveIt主题搭建博客" data-hashtags="历史,文学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" data-hashtag="历史"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" data-title="使用Hugo&#43;LoveIt主题搭建博客"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" data-title="使用Hugo&#43;LoveIt主题搭建博客"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/build-a-blog-using-the-hugo-loveit-theme/" data-title="使用Hugo&#43;LoveIt主题搭建博客" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%8E%86%E5%8F%B2/">历史</a>,&nbsp;<a href="/tags/%E6%96%87%E5%AD%A6/">文学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Dorien</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">China</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

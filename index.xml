@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Dorien&#39;s 小窝</title>
+        <link>http://example.org/</link>
+        <description>整理、总结、分享</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dorien@163.com (Dorien)</managingEditor>
+            <webMaster>dorien@163.com (Dorien)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 17 Jun 2022 18:11:40 &#43;0800</lastBuildDate>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>使用Hugo&#43;LoveIt主题搭建博客</title>
+    <link>http://example.org/build-a-blog-using-the-hugo-loveit-theme/</link>
+    <pubDate>Fri, 17 Jun 2022 18:11:40 &#43;0800</pubDate>
+    <author>Dorien</author>
+    <guid>http://example.org/build-a-blog-using-the-hugo-loveit-theme/</guid>
+    <description><![CDATA[安装 Hugo 可参考Hugo 官方的 Quick Start
+Windows使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 设置环境变量 Windows版本为一个exe文件，需要放到一个目录中，并修改Windows系统的环境变量 # 创建新项目（网站） hugo new site my_website # 生成用于发布的静态文件（不包含草稿） hugo # 生成用于发布的静态文件（包括草稿） hugo -D # 本地运行网站 hugo server 安装 GIT 可到官方GIT网站下载
+安装 LoveIt 主题 1 2 # 位于你的博客项目根目录 git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 代码克隆成功后在./themes文件夹下应出现LoveIt文件夹。
+详细可参考LoveIt 官方文档
+项目文件树结构 1 2 3 4 5 6 7 8 9 10 .]]></description>
+</item>
+</channel>
+</rss>
